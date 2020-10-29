@@ -5,6 +5,8 @@ import { SiteMapComponent } from './site-map/site-map.component';
 import { CatalogueSearchComponent } from './catalogue-search/catalogue-search.component';
 import { CatalogueMaintenanceComponent } from './catalogue-maintenance/catalogue-maintenance.component';
 import { AboutComponent } from './about/about.component';
+import { MaintenanceComponent } from './maintenance/maintenance.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 const routes: Routes = [
   {
@@ -24,8 +26,16 @@ const routes: Routes = [
     component: CatalogueSearchComponent
   },
   {
+    path: "search-result",
+    component: SearchResultComponent
+  },
+  {
     path: "maintanance-catalogue",
-    component: CatalogueMaintenanceComponent
+    component: MaintenanceComponent
+  },
+  {
+    path: "maintanance-catalogue/:isbn",
+    component: MaintenanceComponent
   },
   {
     path: "about",

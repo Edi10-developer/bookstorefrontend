@@ -11,6 +11,12 @@ import { CatalogueMaintenanceComponent } from './catalogue-maintenance/catalogue
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { SearchResultComponent } from './search-result/search-result.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -22,11 +28,18 @@ import { AboutComponent } from './about/about.component';
     CatalogueMaintenanceComponent,
     HeaderComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    AppRoutingModule,
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

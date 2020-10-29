@@ -1,1 +1,121 @@
-<p>maintenance works!</p>
+<div class="container">
+    <div class="logo"><h3 *ngIf="isbn ==null">Create new books </h3>
+      <h3 *ngIf="isbn !=null">Update  book with ISBN of {{isbn}} </h3>
+    </div>
+    <div class="register-item">
+     
+      <form [formGroup]='form' (ngSubmit)="save()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">ISBN </label>
+          <input type="email" class="form-control" formControlName="isbn" aria-describedby="emailHelp" placeholder="ISBN">
+          
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title </label>
+            <input type="email" class="form-control"  formControlName="title" aria-describedby="emailHelp" placeholder="Title">
+            
+          </div>
+          <div class="form-group">
+            <label for=" ">Category </label>
+            <select class="form-control" formControlName="category" >
+                <option value="Books"> Books</option>
+                <option value="Audio_Books"> Audio Books</option>
+                <option value="Videos"> Videos</option>
+                <option value="Music"> Music</option> 
+            </select> 
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Author / Publisher</label>
+            <select class="form-control" formControlName="publisher" >
+                <option value="Harper_Collins"> Harper Collins</option>
+                <option value="Penguins"> Penguins  </option>
+                <option value="St_Pauls_Publication"> St Pauls Publication</option>
+                <option value="Franciscan_Media"> Franciscan Media</option> 
+                <option value="Orbis">Orbis</option> 
+            </select> 
+              
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Price </label>
+            <input type="email" class="form-control" formControlName="price" aria-describedby="emailHelp" placeholder="Price">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Quantity at hand </label>
+            <input type="email" class="form-control" formControlName="quantityOnHand" aria-describedby="emailHelp" placeholder="Quantity at hand">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Image </label>
+            <div class="form-group">
+               
+    
+                    <label>Upload Logo</label> 
+                  
+                        <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+                        <div class="img-space">
+    
+                            <ng-container *ngIf="isImageSaved">
+                                <img [src]="cardImageBase64" height="150px" />
+                            </ng-container>
+                          
+    
+                        </div>
+    
+                   
+              
+            </div>
+            
+          </div>
+          <div class="form-group">
+             <button type="submit" class="btn btn-primary">Submit</button>
+             <div> <h3 class="text-warning">{{message}}</h3></div>
+          </div>
+        
+       
+      </form>
+    </div>
+
+</div>
+<div>
+  <h3> List of existing books</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ISBN</th>
+        <th scope="col">Title</th>
+        <th scope="col">Category</th>
+        <th scope="col">Publisher</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity In Hand</th>
+        <th scope="col">Image</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of data">
+        <th scope="row">{{d.isbn}}</th>
+        <td>{{d.title}}</td>
+        <td>{{d.category}}</td>
+        <td>{{d.publisher}}</td>
+        <td>{{d.price}}</td>
+        <td>{{d.quantityOnHand}}</td>
+        <td><img src="{{d.image}}" height="40"></td>
+        <td>
+          <a href="/maintanance-catalogue/{{d.isbn}}" class="btn btn-warning btn-sm btn-outline" >Update</a>
+        </td>
+        <td><button class="btn btn-danger btn-sm" (click)="deleteBook(d.isbn)" >Delete</button></td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
+
+
+ 
+
+
+ 
+ 

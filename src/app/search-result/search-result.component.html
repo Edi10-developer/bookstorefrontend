@@ -1,0 +1,27 @@
+<h3> List of search result , TOTAL: {{total}}</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ISBN</th>
+      <th scope="col">Title</th>
+      <th scope="col">Category</th>
+      <th scope="col">Publisher</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity In Hand</th>
+      <th scope="col">Image</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let d of data | paginate: { itemsPerPage: 5, currentPage: p }">
+      <th scope="row">{{d.isbn}}</th>
+      <td>{{d.title}}</td>
+      <td>{{d.category}}</td>
+      <td>{{d.publisher}}</td>
+      <td>{{d.price}}</td>
+      <td>{{d.quantityOnHand}}</td>
+      <td><img src="{{d.image}}" height="200"></td>
+  
+    </tr>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </tbody>
+</table>

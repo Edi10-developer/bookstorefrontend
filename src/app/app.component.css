@@ -146,7 +146,7 @@
     z-index: -10;
   }
 
-  a,
+  /* a,
   a:visited,
   a:hover {
     color: #1976d2;
@@ -155,7 +155,7 @@
 
   a:hover {
     color: #125699;
-  }
+  } */
 
   .terminal {
     position: relative;
@@ -286,3 +286,7 @@
       visibility: hidden;
     }
   }
+ .active-link{
+  background-color: #1976d2;
+  color: white;
+ }
